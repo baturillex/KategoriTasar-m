@@ -45,7 +45,17 @@ app.post('/sifremiunuttum', login.usersifreunutmak);
 
 app.get('/profil', login.userprofil);
 
-app.get('/sanat', login.sanat);
-
 app.get('/konusmacibilgileri', login.userKonusmaciBilgileri);
 app.listen(port, () => console.log(`Port Çalışıyor :  ${port}!`));
+
+// KATEGORİ GETLERİ
+
+app.get('/kitap', login.kitap);
+app.get('/muzik', login.muzik);
+app.get('/sinema', login.sinema);
+app.get('/sanat', login.sanat);
+app.get('/meeting', login.meeting);
+app.get('/fuar', login.fuar);
+app.get('/spor', login.spor);
+//app.get('/fotoğrafçılık', login.fotoğrafçılık);
+//app.get('/müze', login.muze);

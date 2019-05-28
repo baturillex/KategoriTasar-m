@@ -3,7 +3,7 @@ const sql = require('mssql');
 var webconfig = {
   user: 'batuhan',
   password: 'batuhan61',
-  server: '192.168.1.117',
+  server: '10.201.129.49',
   database: 'Proje'
 };
 
@@ -324,7 +324,7 @@ module.exports.userprofil = function(req, res) {
   });
 };
 
-module.exports.sanat = function(req, res) {
+module.exports.kitap = function(req, res) {
   // Sanat kategorisi
   sql.connect(webconfig, function(err) {
     if (err) console.log(err);
@@ -334,7 +334,125 @@ module.exports.sanat = function(req, res) {
         console.log(err);
       }
       sql.close();
+      res.render('kitap', { veri: verisonucu.recordset });
+    });
+  });
+};
+
+module.exports.muzik = function(req, res) {
+  // Müzik kategorisi
+  sql.connect(webconfig, function(err) {
+    if (err) console.log(err);
+    var request1 = new sql.Request();
+    request1.query("select * from tbl_EtkinlikOlustur where EtkinlikTipi = 'Müzik' ", function(err, verisonucu) {
+      if (err) {
+        console.log(err);
+      }
+      sql.close();
+      res.render('müzik', { veri: verisonucu.recordset });
+    });
+  });
+};
+
+module.exports.sinema = function(req, res) {
+  // Sinema kategorisi
+  sql.connect(webconfig, function(err) {
+    if (err) console.log(err);
+    var request1 = new sql.Request();
+    request1.query("select * from tbl_EtkinlikOlustur where EtkinlikTipi = 'Sinema' ", function(err, verisonucu) {
+      if (err) {
+        console.log(err);
+      }
+      sql.close();
+      res.render('sinema', { veri: verisonucu.recordset });
+    });
+  });
+};
+
+module.exports.sanat = function(req, res) {
+  // Sanat kategorisi
+  sql.connect(webconfig, function(err) {
+    if (err) console.log(err);
+    var request1 = new sql.Request();
+    request1.query("select * from tbl_EtkinlikOlustur where EtkinlikTipi = 'Sanat' ", function(err, verisonucu) {
+      if (err) {
+        console.log(err);
+      }
+      sql.close();
       res.render('sanat', { veri: verisonucu.recordset });
+    });
+  });
+};
+
+module.exports.meeting = function(req, res) {
+  // Meeting kategorisi
+  sql.connect(webconfig, function(err) {
+    if (err) console.log(err);
+    var request1 = new sql.Request();
+    request1.query("select * from tbl_EtkinlikOlustur where EtkinlikTipi = 'Meeting' ", function(err, verisonucu) {
+      if (err) {
+        console.log(err);
+      }
+      sql.close();
+      res.render('Meeting', { veri: verisonucu.recordset });
+    });
+  });
+};
+module.exports.fuar = function(req, res) {
+  // Fuar kategorisi
+  sql.connect(webconfig, function(err) {
+    if (err) console.log(err);
+    var request1 = new sql.Request();
+    request1.query("select * from tbl_EtkinlikOlustur where EtkinlikTipi = 'Fuar' ", function(err, verisonucu) {
+      if (err) {
+        console.log(err);
+      }
+      sql.close();
+      res.render('fuar', { veri: verisonucu.recordset });
+    });
+  });
+};
+
+module.exports.spor = function(req, res) {
+  // Spor kategorisi
+  sql.connect(webconfig, function(err) {
+    if (err) console.log(err);
+    var request1 = new sql.Request();
+    request1.query("select * from tbl_EtkinlikOlustur where EtkinlikTipi = 'Spor' ", function(err, verisonucu) {
+      if (err) {
+        console.log(err);
+      }
+      sql.close();
+      res.render('spor', { veri: verisonucu.recordset });
+    });
+  });
+};
+
+module.exports.fuar = function(req, res) {
+  // Fotoğrafçılık kategorisi
+  sql.connect(webconfig, function(err) {
+    if (err) console.log(err);
+    var request1 = new sql.Request();
+    request1.query("select * from tbl_EtkinlikOlustur where EtkinlikTipi = 'Fotoğrafçılık' ", function(err, verisonucu) {
+      if (err) {
+        console.log(err);
+      }
+      sql.close();
+      res.render('fotografcilik', { veri: verisonucu.recordset });
+    });
+  });
+};
+module.exports.fuar = function(req, res) {
+  // Müze kategorisi
+  sql.connect(webconfig, function(err) {
+    if (err) console.log(err);
+    var request1 = new sql.Request();
+    request1.query("select * from tbl_EtkinlikOlustur where EtkinlikTipi = 'Müze' ", function(err, verisonucu) {
+      if (err) {
+        console.log(err);
+      }
+      sql.close();
+      res.render('muze', { veri: verisonucu.recordset });
     });
   });
 };
